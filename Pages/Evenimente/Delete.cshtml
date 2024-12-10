@@ -1,0 +1,80 @@
+﻿@page
+@model Proiect_MP1.Pages.Evenimente.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Ștergere</h1>
+
+<h3>Sunteți sigur că doriți să ștergeți acest eveniment?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.EventPlanner)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.EventPlanner.FirstName)  @Html.DisplayFor(model => model.Eveniment.EventPlanner.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.Pret)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.Pret)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.Descriere)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.Descriere)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.DataInceput)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.DataInceput)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.DataSfarsit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.DataSfarsit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Eveniment.Locatie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Eveniment.Locatie)
+        </dd>
+        <dt class="col-sm-2">Categorii</dt>
+        <dd class="col-sm-10">
+            @if (Model.Eveniment.EventCategories != null && Model.Eveniment.EventCategories.Any())
+            {
+                <ul>
+                    @foreach (var category in Model.Eveniment.EventCategories)
+                    {
+                      @category.Category.ID @: @category.Category.CategoryName
+
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>Nicio categorie selectată.</span>
+            }
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Eveniment.ID" />
+        <input type="submit" value="Șterge" class="btn btn-danger" /> |
+        <a asp-page="./Index">Înapoi la listă</a>
+    </form>
+</div>
