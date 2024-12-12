@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,6 +11,7 @@ using Proiect_MP1.Models;
 
 namespace Proiect_MP1.Pages.Evenimente
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : EventCategoriesPageModel
     {
         private readonly Proiect_MP1.Data.Proiect_MP1Context _context;

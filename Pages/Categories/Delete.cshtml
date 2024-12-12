@@ -5,11 +5,10 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h3>Ștergere categorie</h3>
 
-<h3>Are you sure you want to delete this?</h3>
+<p>Ești sigur că vrei să ștergi asta?</p>
 <div>
-    <h4>Category</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -22,7 +21,7 @@
     
     <form method="post">
         <input type="hidden" asp-for="Category.ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Șterge" class="btn btn-danger" style="color:#212529" /> |
+        <a asp-page="./Index" style="color:#212529">Înapoi la listă</a>
     </form>
 </div>

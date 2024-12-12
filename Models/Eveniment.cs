@@ -25,7 +25,8 @@ namespace Proiect_MP1.Models
         [Display(Name = "Se termină")]
         public DateTime DataSfarsit { get; set; }
 
-        [Column(TypeName = "decimal(6, 2)")]
+        [Column(TypeName = "decimal(6, 2)")]
+        [Range(0.01, 500)]
         [Display(Name = "Preț bilet")]
         public decimal Pret { get; set; }
 

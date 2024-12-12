@@ -4,14 +4,31 @@ using Proiect_MP1.Data;
 using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy =>
+   policy.RequireRole("Admin"));
+});
+
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Evenimente");
+    options.Conventions.AllowAnonymousToPage("/Evenimente/Index");
+    options.Conventions.AllowAnonymousToPage("/Evenimente/Details");
+    options.Conventions.AuthorizeFolder("/Users", "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/Categories", "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/EventPlanners", "AdminPolicy");
+});
 builder.Services.AddDbContext<Proiect_MP1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Proiect_MP1Context") ?? throw new InvalidOperationException("Connection string 'Proiect_MP1Context' not found.")));
 
 builder.Services.AddDbContext<EventIdentityContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Proiect_MP1Context") ?? 
     throw new InvalidOperationException("Connection string 'Proiect_MP1Context' not found.")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<EventIdentityContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<EventIdentityContext>();
+
 
 var app = builder.Build();
 
