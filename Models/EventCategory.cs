@@ -5,6 +5,7 @@ namespace Proiect_MP1.Models
     public class EventCategory
     {
         public int ID { get; set; }
+
         public int EventID { get; set; }
         public Eveniment Eveniment{ get; set; }
 

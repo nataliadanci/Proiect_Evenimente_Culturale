@@ -29,10 +29,11 @@ namespace Proiect_MP1.Models
         [Display(Name = "Preț bilet")]
         public decimal Pret { get; set; }
 
-        [Display(Name = "Categorie")]
-        public int? EventPlannerID { get; set; }
         [Display(Name = "Organizator")]
+        public int? EventPlannerID { get; set; }
         public EventPlanner? EventPlanner { get; set; }
+
+        [Display(Name = "Categorie")]
         public ICollection<EventCategory>? EventCategories { get; set; }
         public ICollection<Registration>? Registrations { get; set; }
 

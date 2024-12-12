@@ -31,7 +31,6 @@ namespace Proiect_MP1.Pages.Registrations
 
             var registration = await _context.Registration
                 .Include(b=>b.Eveniment)
-                    .ThenInclude(c=>c.EventPlanner)
                 .Include(b=>b.User)
                 .FirstOrDefaultAsync(m => m.ID == id);
 
