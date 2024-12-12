@@ -1,22 +1,215 @@
-html {
+/* Reset?ri generale */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif; /* Font elegant pentru o tematic? cultural? */
     font-size: 14px;
+    background-color: #f9f5f0; /* Fundal în tonuri de toamn? */
+    color: #5a4633; /* Text maro închis */
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
+/* Navbar Autumnal */
+.navbar {
+    background-color: #8b5e3b; /* Maro deschis */
+    color: #fff; /* Text alb */
+    padding: 15px;
+    border-bottom: 3px solid #d4a373; /* Linie decorativ? aurie */
+}
+
+    .navbar a.nav-link {
+        color: #fff; /* Linkuri albe */
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .navbar a.nav-link:hover {
+            color: #d4a373; /* Auriu deschis pe hover */
+        }
+
+.navbar-brand {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Georgia', serif; /* Font elegant pentru o tematic? cultural? */
+}
+    .navbar-brand:hover {
+        color: #d4a373;
+    }
+
+/* Footer Autumnal */
+footer {
+    background-color: #8b5e3b; /* Acela?i maro deschis ca navbar-ul */
+    color: #fff; /* Text alb */
+    padding: 20px 0;
+    text-align: center;
+    border-top: 3px solid #d4a373; /* Linie decorativ? aurie */
+}
+
+    footer a {
+        color: #d4a373; /* Linkuri aurii */
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        footer a:hover {
+            color: #fff; /* Alb pe hover */
+        }
+
+/* Tabel Autumnal */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background-color: #fdf6ec; /* Fundal deschis */
+}
+
+    .table th, .table td {
+        border: 1px solid #d4a373; /* Linie aurie */
+        padding: 10px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .table th {
+        background-color: #8b5e3b; /* Maro deschis */
+        color: #fff; /* Text alb */
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f9f5f0; /* Alternare rânduri cu fundal */
+    }
+
+/* Butoane Stilizate */
+.btn {
+    background-color: #d4a373; /* Fundal auriu */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top:20px;
+}
+.btn:hover {
+    background-color: #d4a373; /* Fundal auriu */
+   
+}
+
+
+/* Stil pentru sec?iuni muzicale */
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    color: #5a4633; /* Maro închis */
+    margin-top:20px;
+}
+
+
+p {
+    line-height: 1.6;
+}
+
+/* Stiluri de hover pentru linkuri generale */
+a {
+    color: #8b5e3b; /* Maro deschis */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Adaug? accente autumnale la hover */
+.card {
+    border: 1px solid #d4a373;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+    .card:hover {
+        transform: scale(1.05); /* M?rire u?oar? pe hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar a.nav-link {
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .btn {
+        padding: 8px 15px;
     }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* Stil pentru linkurile de sortare din tabel */
+.table-sort-link {
+    background-color: #fff; /* Fundal alb */
+    color: #8b5e3b; /* Maro deschis pentru text */
+    padding: 5px 10px; /* Spa?iere */
+    border-radius: 5px; /* Col?uri rotunjite */
+    text-decoration: none; /* Elimin? sublinierea */
+    font-weight: bold; /* Text îngro?at */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Tranzi?ie pentru hover */
 }
 
-html {
-    position: relative;
-    min-height: 100%;
+    .table-sort-link:hover {
+        background-color: #d4a373; /* Fundal auriu pe hover */
+        color: #fff; /* Text alb pe hover */
+    }
+
+.nav-pills {
+    background-color: #fdf6ec; /* Fundal deschis */
+    border: 1px solid #d4a373; /* Linie aurie */
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 300px; /* Op?ional, pentru a limita l??imea */
+    margin: auto; /* Centrare pe pagin? */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Umbra */
 }
 
-body {
-    margin-bottom:  60px;
+    /* Stil pentru fiecare element din list? */
+    .nav-pills .nav-item {
+        margin-bottom: 5px;
+    }
+
+    /* Stil pentru linkuri */
+    .nav-pills .nav-link {
+        background-color: #8b5e3b; /* Fundal maro deschis */
+        color: white; /* Text alb */
+        font-weight: bold;
+        text-align: center;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        /* Stil la hover */
+        .nav-pills .nav-link:hover {
+            background-color: #d4a373; /* Fundal auriu la hover */
+            color: white;
+        }
+
+        /* Stil pentru elementul activ */
+        .nav-pills .nav-link.active {
+            background-color: #d4a373; /* Fundal auriu */
+            color: white; /* Text alb */
+            border: 2px solid #8b5e3b; /* Linie maro deschis */
+        }
+
+/* Responsive pentru lista de navigare */
+@media (max-width: 768px) {
+    .nav-pills {
+        max-width: 100%; /* L??ime complet? pe ecrane mici */
+        padding: 5px;
+    }
+
+        .nav-pills .nav-link {
+            font-size: 14px; /* Dimensiune mai mic? pentru linkuri */
+        }
 }
+

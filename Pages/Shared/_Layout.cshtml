@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Evenimente/Index">Evenimente</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,19 +20,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Categories/Index">Categorii</a>
+                            <a class="nav-link" asp-area="" asp-page="/Categories/Index">Categorii</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/EventPlanners/Index">Organizatori</a>
+                            <a class="nav-link" asp-area="" asp-page="/EventPlanners/Index">Organizatori</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Users/Index">Membri</a>
+                            <a class="nav-link" asp-area="" asp-page="/Users/Index">Membri</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Registrations/Index">Înregistrări evenimente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Politici de confidențialitate</a>
+                            <a class="nav-link" asp-area="" asp-page="/Registrations/Index">Înregistrări evenimente</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -46,9 +43,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
-            &copy; 2024 - Danci_Natalia - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2024 - EvenimenteCulturale - <a asp-area="" asp-page="/Privacy">Politici de confidențialitate</a>
         </div>
     </footer>
 

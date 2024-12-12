@@ -5,10 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h2 style="color:black">Listă evenimente</h2>
+<h2>Listă evenimente</h2>
 
 <p>
-    <a asp-page="Create" style="color:#212529">Creează</a>
+    <a asp-page="Create">Creați</a>
 </p>
 
 <form asp-page="./Index" method="get">
@@ -16,7 +16,7 @@
         <p>
             Caută evenimentul după numele său sau al organizatorului:
             <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <input type="submit" value="Search" class="btn btn-primary m-0" /> <br />
             <a asp-page="./Index">Înapoi la lista completă</a>
         </p>
     </div>
@@ -26,12 +26,12 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.NumeSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NumeSort" class="table-sort-link">
                 @Html.DisplayNameFor(model => model.Eveniment[0].Nume)
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.EventPlannerSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.EventPlannerSort" class="table-sort-link">
                 @Html.DisplayNameFor(model => Model.Eveniment[0].EventPlanner.EventPlannerName)
                 </a>
             </th>
@@ -96,9 +96,9 @@
                     }
                 </td>
              <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID" style="color:#212529">Editează</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID" style="color:#212529">Detalii</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID" style="color:#212529">Șterge</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editează</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Șterge</a>
              </td>
         </tr>
 }

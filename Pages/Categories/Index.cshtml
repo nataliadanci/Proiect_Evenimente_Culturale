@@ -8,7 +8,7 @@
 <h2>Categorii</h2>
 
 <p>
-    <a asp-page="Create" style="color:#212529">Creează</a>
+    <a asp-page="Create">Creați</a>
 </p>
 <table class="table">
     <thead>
@@ -32,10 +32,10 @@
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
             <td>
-                <a asp-page="./Index" asp-route-id="@item.ID" style="color:#212529">Selectează</a> |
-                    <a asp-page="./Edit" asp-route-id="@item.ID" style="color:#212529">Editează</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID" style="color:#212529">Detalii</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID" style="color:#212529">Șterge</a>
+                <a asp-page="./Index" asp-route-id="@item.ID">Selectează</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editează</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Șterge</a>
             </td>
         </tr>
 }
