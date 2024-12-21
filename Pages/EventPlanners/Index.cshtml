@@ -14,39 +14,40 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.EventPlanner[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventPlanner[0].LastName)
+                Nume organizator
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.EventPlannerData.EventPlanners)
+
         {
+
             string selectedRow = "";
+
             if (item.ID == Model.EventPlannerID)
+
             {
+
                 selectedRow = "table-success";
+
             }
             <tr class="@selectedRow">
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                <a asp-page="./Index" asp-route-id="@item.ID" >Selectează</a> |
-                <a asp-page="./Edit" asp-route-id="@item.ID">Editează</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Șterge</a>
-            </td>
-        </tr>
-}
+                <td>
+                    @($"{item.FirstName} {item.LastName}")
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Selectează</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editează</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Șterge</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
 @if (Model.EventPlannerData.Evenimente != null)
 {
     <h3>Evenimente organizate de organizatorii selectați</h3>

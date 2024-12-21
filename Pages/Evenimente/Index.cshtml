@@ -36,8 +36,13 @@
                 </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Eveniment[0].Pret)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PretSort" class="table-sort-link">
+                    @Html.DisplayNameFor(model => Model.Eveniment[0].Pret)
+                </a>
             </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Eveniment[0].Pret)
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.Eveniment[0].Descriere)
             </th>
@@ -91,7 +96,7 @@
                     @{
                         foreach (var category in item.EventCategories)
                         {
-                            @category.Category.ID @: @category.Category.CategoryName <br />
+                            @: @category.Category.CategoryName <br />
                         }
                     }
                 </td>

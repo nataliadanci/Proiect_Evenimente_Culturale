@@ -48,31 +48,24 @@
                 <span asp-validation-for="Eveniment.Locatie" class="textdanger"></span>
             </div>
             <div class="form-group">
-                <div class="table">
-                  <table>
-                    <tr>
-                        @{
-                            int cnt = 0;
+                <label>Categorii</label>
+                <div class="d-flex flex-wrap">
+                    @foreach (var cat in Model.AssignedCategoryDataList)
 
-                            foreach (var cat in Model.AssignedCategoryDataList)
-                            {
-                                if (cnt++ % 3 == 0)
-                                {
-                                @:</tr><tr>
-                                }
-                                @:<td>
-                                    <input type="checkbox"
-                                        name="selectedCategories"
-                                        value="@cat.CategoryID"
-                                        @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
-                                    @cat.CategoryID @: @cat.Name
-                                @:</td>
-                            }
-                    @:</tr>
-                        }   
-                   </table>
+
+
+                    {
+                        <div class="form-check m-2">
+                            <input type="checkbox"
+                                   name="selectedCategories"
+                                   value="@cat.CategoryID"
+                                   class="form-check-input"
+                            @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                            <label class="form-check-label">@cat.Name</label>
+                        </div>
+                    }
                 </div>
-             </div>
+            </div>
             <div></div>
             <div class="form-group">
                 <input type="submit" value="Salvare" class="btn btn-primary" />
@@ -82,7 +75,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Înapoi la listăt</a>
+    <a asp-page="./Index">Înapoi la listă</a>
 </div>
 
 @section Scripts {

@@ -1,5 +1,6 @@
 /* Reset?ri generale */
 html, body {
+    height:100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,6 +9,11 @@ html, body {
     background-color: #f9f5f0; /* Fundal în tonuri de toamn? */
     color: #5a4633; /* Text maro închis */
 }
+
+body {
+    padding-bottom: 100px; /* În?l?imea footer-ului */
+}
+
 
 /* Navbar Autumnal */
 .navbar {
@@ -43,7 +49,11 @@ footer {
     color: #fff; /* Text alb */
     padding: 20px 0;
     text-align: center;
-    border-top: 3px solid #d4a373; /* Linie decorativ? aurie */
+    border-top: 3px solid #d4a373;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
 }
 
     footer a {
@@ -58,6 +68,8 @@ footer {
         }
 
 /* Tabel Autumnal */
+
+
 .table {
     border-collapse: collapse;
     width: 100%;

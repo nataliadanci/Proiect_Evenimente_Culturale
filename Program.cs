@@ -19,6 +19,7 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AuthorizeFolder("/Users", "AdminPolicy");
     options.Conventions.AuthorizeFolder("/Categories", "AdminPolicy");
     options.Conventions.AuthorizeFolder("/EventPlanners", "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/Registrations");
 });
 builder.Services.AddDbContext<Proiect_MP1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Proiect_MP1Context") ?? throw new InvalidOperationException("Connection string 'Proiect_MP1Context' not found.")));

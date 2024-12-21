@@ -23,10 +23,31 @@ namespace Proiect_MP1.Pages.Registrations
 
         public async Task OnGetAsync()
         {
-            Registration = await _context.Registration
-                .Include(r => r.Eveniment)
-                    .ThenInclude(r => r.EventPlanner)
-                .Include(r => r.User).ToListAsync();
+            if (_context.Registration != null)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    // Dacă utilizatorul este administrator, afișează toate înregistrările
+                    Registration = await _context.Registration
+                        .Include(r => r.Eveniment)
+                            .ThenInclude(r => r.EventPlanner)
+                        .Include(r => r.User)
+                        .ToListAsync();
+                }
+                else
+                {
+                    // Dacă utilizatorul nu este administrator, afișează doar înregistrările lui
+                    var currentUserName = User.Identity?.Name; // Obține numele utilizatorului autentificat
+                    Registration = await _context.Registration
+                        .Include(r => r.Eveniment)
+                            .ThenInclude(r => r.EventPlanner)
+                        .Include(r => r.User)
+                        .Where(r => r.User.Email == currentUserName) // Filtrează după utilizator
+                        .ToListAsync();
+                }
+            }
         }
+
+
     }
 }

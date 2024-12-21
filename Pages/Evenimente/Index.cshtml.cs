@@ -26,6 +26,7 @@ namespace Proiect_MP1.Pages.Evenimente
         public int CategoryID { get; set; }
         public string NumeSort { get; set; }
         public string EventPlannerSort { get; set; }
+        public string PretSort { get; set; }
 
         public string CurrentFilter { get; set; }
         public async Task OnGetAsync(int? id, int? categoryID, string sortOrder, string searchString)
@@ -34,6 +35,7 @@ namespace Proiect_MP1.Pages.Evenimente
 
             NumeSort = String.IsNullOrEmpty(sortOrder) ? "nume_desc" : "";
             EventPlannerSort = sortOrder == "eventplanner" ? "eventplanner_desc" : "";
+            PretSort = sortOrder == "pret" ? "pret_desc" : "pret"; // Sortare pentru preț
 
             CurrentFilter = searchString;
 
@@ -58,6 +60,8 @@ namespace Proiect_MP1.Pages.Evenimente
                 "nume_desc" => evenimenteQuery.OrderByDescending(s => s.Nume),
                 "eventplanner_desc" => evenimenteQuery.OrderByDescending(s => s.EventPlanner != null ? s.EventPlanner.EventPlannerName : string.Empty),
                 "eventplanner" => evenimenteQuery.OrderBy(s => s.EventPlanner != null ? s.EventPlanner.EventPlannerName : string.Empty),
+                "pret_desc" => evenimenteQuery.OrderByDescending(s => s.Pret), 
+                "pret" => evenimenteQuery.OrderBy(s => s.Pret), 
                 _ => evenimenteQuery.OrderBy(s => s.Nume),
             };
 
@@ -86,6 +90,12 @@ namespace Proiect_MP1.Pages.Evenimente
                     case "eventplanner":
                         EventD.Evenimente = EventD.Evenimente.OrderBy(s =>
                        s.EventPlanner.EventPlannerName);
+                        break;
+                    case "pret_desc":
+                        EventD.Evenimente = EventD.Evenimente.OrderByDescending(s => s.Pret);
+                        break;
+                    case "pret":
+                        EventD.Evenimente = EventD.Evenimente.OrderBy(s => s.Pret);
                         break;
                     default:
                         EventD.Evenimente = EventD.Evenimente.OrderBy(s => s.Nume);
